@@ -14,6 +14,8 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          echo "Access Keys configured"
       - name: Install Terraform
         run: |
           sudo apt-get update && sudo apt-get -y install wget unzip
