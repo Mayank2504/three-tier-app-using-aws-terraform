@@ -2,7 +2,7 @@ name: Terraform
 
 on:
   #push:
-  workslow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
