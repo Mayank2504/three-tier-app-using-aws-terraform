@@ -19,12 +19,13 @@ module "alb_http_sg" {
 ################################################################################
 
 module "alb" {
-  source          = "terraform-aws-modules/alb/aws"
-  version         = "~> 6.0"
-  name            = var.alb_name
-  vpc_id          = module.vpc.vpc_id
-  subnets         = module.vpc.public_subnets
-  security_groups = [module.alb_http_sg.security_group_id]
+  source  = "terraform-aws-modules/alb/aws"
+  version = "~> 6.0"
+  name    = var.alb_name
+  vpc_id  = module.vpc.vpc_id
+  subnets = module.vpc.public_subnets
+  security_groups = [
+  module.alb_http_sg.security_group_id]
 
   http_tcp_listeners = [
     {
@@ -40,7 +41,10 @@ module "alb" {
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
-      stickiness       = { "enabled" = true, "type" = "lb_cookie" }
+      stickiness = {
+        "enabled" = true,
+        "type"    = "lb_cookie"
+      }
       health_check = {
         enabled             = true
         interval            = 30
