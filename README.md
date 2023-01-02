@@ -18,3 +18,6 @@ Alternatively, you can also execute the Terraform code using the command line:
 - Run ``` terraform init ``` to initialize the working directory.
 - Run ```terraform plan``` to see what changes will be made.
 - Run ```terraform apply``` to apply the changes and deploy the application.
+
+# Architecture Diagram
+![Architecture Diagram](./three-tier-app-architecture-diagram.jpg)
